@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WineCatalog.Frontend.Models.WineCatalogModel>
+
+@{
+    ViewBag.Title = "Список вин Крыма";
+}
+
+<h2>Список вин Крыма (чистый ASP.NET MVC)</h2>
+
+<p>
+    @Html.ActionLink("Создать новую запись", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TermExposure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fortress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TermExposure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fortress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Подробно", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
